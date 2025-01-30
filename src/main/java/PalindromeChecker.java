@@ -37,13 +37,27 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  String changed_string = removePunctuation(word);
+  if(changed_string.equals(reverse_word(changed_string))) {
+    return true;
+  }
   return false;
 }
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String sNew = new String();
+  for(int i = word.length(); i > 0; i--) {
+    sNew += word.substring(i-1, i);
+  }
+  return sNew;
+}
+  public String removePunctuation(String line) {
+  String processed = line.toLowerCase();
+  processed = processed.replaceAll(" ", "");
+  processed = processed.replaceAll(",", "");
+  processed = processed.replaceAll("\\.", "");
+  processed = processed.replaceAll("!", "");
+  processed = processed.replaceAll("'", "");
+  return processed;
 }
 }
